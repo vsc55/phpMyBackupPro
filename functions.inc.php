@@ -241,7 +241,7 @@ function PMBP_print_footer()
             $ping_res = PMBP_is_connected();
             if ($ping_res) {
                 if (isset($CONF['sql_host_s'])) {
-                    $mode = $_SESSION['multi_user_mode'] ? 'm' : 's'+count($CONF['sql_host_s']) ? 'm' : 's';
+                    $mode = $_SESSION['multi_user_mode'] ? 'm' : ('s'+count($CONF['sql_host_s']) ? 'm' : 's');
                 }
                 @set_time_limit("5");
                 if (isset($PMBP_SYS_VAR['security_key'])) {
