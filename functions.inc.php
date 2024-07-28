@@ -1815,7 +1815,9 @@ function PMBP_getln($path, $close = false, $org_path = false)
 
         if ($close) {
             // remove the file handler
-            @gzclose($GLOBALS['lnFile']);
+            if (is_resource($GLOBALS['lnFile'])) {
+                @gzclose($GLOBALS['lnFile']);
+            }
             $GLOBALS['lnFile'] = null;
             return null;
         }
